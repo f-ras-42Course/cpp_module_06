@@ -40,7 +40,12 @@ void ScalarConverter::convertToFloat(const std::string& literal) {
 		float value = std::stof(literal);
 		if (std::isnan(value)) std::cout << "float: nanf\n";
 		else if (std::isinf(value)) std::cout << "float: " << (value > 0 ? "+inff" : "-inff") << "\n";
-		else std::cout << "float: " << value << "f\n";
+		else {
+			std::cout << "float: " << value;
+			if (fmod(value, 1) == 0)
+				std::cout << ".0";
+			std::cout << "f\n";
+		}
 	} catch (const std::exception& e) {
 		std::cout << "float: not a valid float\n";
 	}
@@ -51,7 +56,12 @@ void ScalarConverter::convertToDouble(const std::string& literal) {
 		double value = std::stod(literal);
 		if (std::isnan(value)) std::cout << "double: nan\n";
 		else if (std::isinf(value)) std::cout << "double: " << (value > 0 ? "+inf" : "-inf") << "\n";
-		else std::cout << "double: " << value << "\n";
+		else {
+			std::cout << "double: " << value;
+			if (fmod(value, 1) == 0)
+				std::cout << ".0";
+			std::cout << "\n";
+		}
 	} catch (const std::exception& e) {
 		std::cout << "double: not a valid double\n";
 	}

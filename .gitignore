@@ -42,3 +42,4 @@ tests*
 *cmake-build-debug
 convert
 serialize
+basis

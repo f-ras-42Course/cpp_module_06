@@ -5,8 +5,9 @@
 #include "C.hpp"
 
 Base* generate(void) {
-	sranddev();
-	int random = std::rand() % 3;
+	std::mt19937 rng(std::random_device{}());
+	std::uniform_int_distribution<int> d(0, 2);
+	int random = d(rng);
 	if (random == 0) return new A();
 	if (random == 1) return new B();
 	return new C();

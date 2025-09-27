@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <exception>
+#include <random>
 
 
 class Base {
@@ -12,7 +13,6 @@ public:
 	virtual ~Base() {}
 };
 
-// factory / identification functions
 Base* generate(void);
 void identify(Base* p);
 void identify(Base& p);
